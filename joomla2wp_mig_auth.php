@@ -60,7 +60,8 @@ function joomla_mig_auth( $user, $username, $password ) {
 
 function auth_joomla_phpass( $username, $password, $joomlapass ) {
         // Use PHPass's portable hashes with a cost of 10.
-        $phpass = new PasswordHash(10, true);
+        require_once ABSPATH . WPINC . '/class-phpass.php';
+	$phpass = new PasswordHash(10, true);
 
         $password = stripslashes($password);
 
